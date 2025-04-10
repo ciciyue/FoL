@@ -9,6 +9,8 @@ We introduce **Focus on Local (FoL)**, a two-stage Visual Place Recognition (VPR
 - **Weakly-Supervised Local Feature Learning**: We leverage pseudo-correspondences from aggregated global features to improve local matching supervision.
 - **Efficient Re-ranking with Discriminative Region Guidance**: We use the learned discriminative regions to guide local feature matching, improving accuracy and efficiency.
 
+You can also read our full paper for more details: [Download the Paper (2104_Focus_on_Local_Finding_Re.pdf)](2104_Focus_on_Local_Finding_Re.pdf)
+
 <img src="image/pipeline.jpg" width="800px">
 
 ## Setup
@@ -27,6 +29,10 @@ Download a pretrained **FoL model** from [here](https://drive.google.com/file/d/
 python eval.py --eval_datasets_folder=/datasets/ --dataset_names pitts30k amstertime --resume=/weights/FoL.pth
 ```
 
+## To-do
+- [x] Public release of evaluation code and pretrained FoL model  
+- [ ] Public release of the training code (coming soon)  
+- [ ] More detailed documentation (coming soon)
 
 ## Acknowledgements
 This code is based on the excellent work of:
