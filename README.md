@@ -1,5 +1,11 @@
 # Focus on Local: Finding Reliable Discriminative Regions for Visual Place Recognition
-This is the official repository for the AAAI 2025 paper "Focus on Local: Finding Reliable Discriminative Regions for Visual Place Recognition".
+
+[![license](https://img.shields.io/badge/LICENSE-Apache-green)](https://github.com/chenshunpeng/FoL/blob/main/LICENSE)
+[![arXiv](https://img.shields.io/badge/arXiv-2504.09881-red)](https://arxiv.org/abs/2504.09881)
+[![star](https://img.shields.io/github/stars/chenshunpeng/FoL)](https://github.com/chenshunpeng/FoL)
+
+This is the official repository for the AAAI 2025 paper "FoL" available at [AAAI Paper Page](https://ojs.aaai.org/index.php/AAAI/article/view/32811). In addition, our paper and its extensive supplementary materials can be found on [arXiv](https://arxiv.org/abs/2504.09881).
+
 
 ## Summary
 
@@ -9,7 +15,7 @@ We introduce **Focus on Local (FoL)**, a two-stage Visual Place Recognition (VPR
 - **Weakly-Supervised Local Feature Learning**: We leverage pseudo-correspondences from aggregated global features to improve local matching supervision.
 - **Efficient Re-ranking with Discriminative Region Guidance**: We use the learned discriminative regions to guide local feature matching, improving accuracy and efficiency.
 
-You can also read our full paper for more details: [Download the Paper (2104_Focus_on_Local_Finding_Re.pdf)](2104_Focus_on_Local_Finding_Re.pdf)
+You may refer to our **anonymous conference version** of the paper: [Download the Paper](2104_Focus_on_Local_Finding_Re.pdf)
 
 <img src="image/pipeline.jpg" width="800px">
 
@@ -36,7 +42,24 @@ python eval.py --eval_datasets_folder=/datasets/ --dataset_names pitts30k amster
 
 ## Acknowledgements
 This code is based on the excellent work of:
+ - [DINOv2](https://github.com/facebookresearch/dinov2)
  - [AnyLoc](https://github.com/AnyLoc/AnyLoc)
  - [SelaVPR](https://github.com/Lu-Feng/SelaVPR)
  - [CricaVPR](https://github.com/Lu-Feng/CricaVPR)
  - [SALAD](https://github.com/serizba/salad)
+
+## Citation
+
+If you find this repo useful for your research, please cite the paper
+
+```
+@inproceedings{wang2025focus,
+  title={Focus on Local: Finding Reliable Discriminative Regions for Visual Place Recognition},
+  author={Wang, Changwei and Chen, Shunpeng and Song, Yukun and Xu, Rongtao and Zhang, Zherui and Zhang, Jiguang and Yang, Haoran and Zhang, Yu and Fu, Kexue and Du, Shide and others},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={39},
+  number={7},
+  pages={7536--7544},
+  year={2025}
+}
+```
