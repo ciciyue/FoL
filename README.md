@@ -1,6 +1,7 @@
 # Focus on Local: Finding Reliable Discriminative Regions for Visual Place Recognition
 
 [![license](https://img.shields.io/badge/LICENSE-Apache-green)](https://github.com/chenshunpeng/FoL/blob/main/LICENSE)
+[![Hugging Face](https://img.shields.io/badge/Hugging%20Face-FoL-orange)](https://huggingface.co/shunpeng/FoL)
 [![arXiv](https://img.shields.io/badge/arXiv-2504.09881-red)](https://arxiv.org/abs/2504.09881)
 [![star](https://img.shields.io/github/stars/chenshunpeng/FoL)](https://github.com/chenshunpeng/FoL)
 
@@ -15,7 +16,7 @@ We introduce **Focus on Local (FoL)**, a two-stage Visual Place Recognition (VPR
 - **Weakly-Supervised Local Feature Learning**: We leverage pseudo-correspondences from aggregated global features to improve local matching supervision.
 - **Efficient Re-ranking with Discriminative Region Guidance**: We use the learned discriminative regions to guide local feature matching, improving accuracy and efficiency.
 
-You may refer to our **anonymous conference version** of the paper: [Download the Paper](2104_Focus_on_Local_Finding_Re.pdf)
+You may refer to our **anonymous conference version** of the paper: [anonymous conference version](2104_Focus_on_Local_Finding_Re.pdf)
 
 <img src="image/pipeline.jpg" width="800px">
 
@@ -27,12 +28,42 @@ Tested on **Pytorch 2.0.0** with **CUDA 11.7**. To set up the environment:
 conda env create -f environment.yml
 ```
 
-## Evaluation
-
-Download a pretrained **FoL model** from [here](https://drive.google.com/file/d/1-7LE_4Q0zL3S8lGVEH0Ob1NCFXq4KfJ8/view?usp=sharing). Evaluate with:
+Install the Hugging Face Hub client (if you want to pull weights directly):
 
 ```bash
-python eval.py --eval_datasets_folder=/datasets/ --dataset_names pitts30k amstertime --resume=/weights/FoL.pth
+pip install huggingface-hub
+```
+
+## Download Pretrained Weights
+
+You can download our pretrained FoL model either via Google Drive or directly from Hugging Face:
+
+- **Google Drive**  
+  [here](https://drive.google.com/file/d/1-7LE_4Q0zL3S8lGVEH0Ob1NCFXq4KfJ8/view?usp=sharing)
+
+- **Hugging Face Hub**  
+  ```python
+  from huggingface_hub import hf_hub_download
+
+  # this will download FoL.pth into your cache folder
+  FoLpath = hf_hub_download(
+      repo_id="shunpeng/FoL",
+      filename="FoL.pth"
+  )
+  print("Downloaded weights to:", FoLpath)
+  ```
+
+---
+
+## Evaluation
+
+Assuming you have your datasets under `/datasets/` and your weights in `/weights/FoL.pth`:
+
+```bash
+python eval.py \
+  --eval_datasets_folder=/datasets/ \
+  --dataset_names pitts30k amstertime \
+  --resume=/weights/FoL.pth
 ```
 
 ## To-do
