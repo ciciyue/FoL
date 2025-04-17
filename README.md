@@ -31,7 +31,7 @@ conda env create -f environment.yml
 Install the Hugging Face Hub client (if you want to pull weights directly):
 
 ```bash
-pip install huggingface-hub
+pip install huggingface_hub
 ```
 
 ## Download Pretrained Weights
