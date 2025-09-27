@@ -85,9 +85,15 @@ python eval.py \
   --resume=/weights/FoL.pth
 ```
 
+## Train
+
+```bash
+python train.py --eval_datasets_folder=.../datasets/ --eval_dataset_name pitts30k --epochs_num=8 --train_batch_size=60 --lr=6e-5 --optim=adamw --resize 322 322 --save_dir train_log/
+```
+
 ## To-do
 - [x] Public release of evaluation code and pretrained FoL model  
-- [ ] Public release of the training code (coming soon)  
+- [x] Public release of the training code (coming soon)  
 - [ ] More detailed documentation (coming soon)
 
 ## Acknowledgements
