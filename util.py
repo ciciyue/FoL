@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 import torch
-
+from os.path import join
+import shutil
 
 def resume_model(args, model):
     checkpoint = torch.load(args.resume, map_location=args.device)
@@ -18,3 +19,9 @@ def resume_model(args, model):
     # Load the model state dictionary
     model.load_state_dict(model_state_dict, strict=False)
     return model
+
+def save_checkpoint(args, state, is_best, filename, recalls_rerank):
+    model_path = join(args.save_dir, f"Rerank_R1_{recalls_rerank[0]:.2f}_R5_{recalls_rerank[1]:.2f}_{filename}")
+    torch.save(state, model_path)
+    if is_best:
+        shutil.copyfile(model_path, join(args.save_dir, "best_R5_model.pth"))
