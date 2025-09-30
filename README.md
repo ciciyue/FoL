@@ -91,10 +91,207 @@ python eval.py \
 python train.py --eval_datasets_folder=.../datasets/ --eval_dataset_name pitts30k --epochs_num=8 --train_batch_size=60 --lr=6e-5 --optim=adamw --resize 322 322 --save_dir train_log/
 ```
 
+## Performance
+
+Here are the Recall@N results of our FoL model on various standard VPR benchmarks.
+
+<table style="border-collapse: collapse; width: 60%; margin: 1.5em 0; font-family: Arial, sans-serif;">
+  <thead>
+    <tr style="background-color: #f0f0f0;">
+      <th rowspan="2" style="text-align: left; border: 1px solid #ddd; padding: 8px; font-weight: bold;">Dataset</th>
+      <th colspan="3" style="text-align: center; border: 1px solid #ddd; padding: 8px; font-weight: bold;">FoL-global</th>
+      <th colspan="3" style="text-align: center; border: 1px solid #ddd; padding: 8px; font-weight: bold;">FoL-reranking</th>
+    </tr>
+    <tr style="background-color: #f0f0f0;">
+      <th style="text-align: center; border: 1px solid #ddd; padding: 8px; font-weight: bold;">R@1</th>
+      <th style="text-align: center; border: 1px solid #ddd; padding: 8px; font-weight: bold;">R@5</th>
+      <th style="text-align: center; border: 1px solid #ddd; padding: 8px; font-weight: bold;">R@10</th>
+      <th style="text-align: center; border: 1px solid #ddd; padding: 8px; font-weight: bold;">R@1</th>
+      <th style="text-align: center; border: 1px solid #ddd; padding: 8px; font-weight: bold;">R@5</th>
+      <th style="text-align: center; border: 1px solid #ddd; padding: 8px; font-weight: bold;">R@10</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #ffffff;">
+      <td style="text-align: left; border: 1px solid #ddd; padding: 8px;">Pitts250k-test</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">96.5</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.1</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.5</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">97.0</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.2</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.5</td>
+    </tr>
+    <tr style="background-color: #f9f9f9;">
+      <td style="text-align: left; border: 1px solid #ddd; padding: 8px;">MSLS-val</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">93.1</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">96.9</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">97.4</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">93.5</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">96.9</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">97.6</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="text-align: left; border: 1px solid #ddd; padding: 8px;">MSLS-challenge</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">78.7</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">90.8</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">93.0</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">80.0</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">90.9</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">93.0</td>
+    </tr>
+    <tr style="background-color: #f9f9f9;">
+      <td style="text-align: left; border: 1px solid #ddd; padding: 8px;">Tokyo24/7</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">96.2</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">98.7</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">98.7</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">98.4</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.1</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.4</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="text-align: left; border: 1px solid #ddd; padding: 8px;">Pitts30k</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">93.9</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">97.2</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">98.1</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">94.5</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">97.4</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">98.2</td>
+    </tr>
+    <tr style="background-color: #f9f9f9;">
+      <td style="text-align: left; border: 1px solid #ddd; padding: 8px;">Sped</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">92.1</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">96.5</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">98.0</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">91.8</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">96.5</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">97.4</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="text-align: left; border: 1px solid #ddd; padding: 8px;">Amstertime</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">64.6</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">84.3</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">88.2</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">70.1</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">89.0</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">91.8</td>
+    </tr>
+    <tr style="background-color: #f9f9f9;">
+      <td style="text-align: left; border: 1px solid #ddd; padding: 8px;">Eynsham</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">91.7</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">95.3</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">96.2</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">92.4</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">95.8</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">96.6</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="text-align: left; border: 1px solid #ddd; padding: 8px;">Nordland*</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">78.3</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">90.8</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">94.0</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">85.8</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">94.9</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">96.8</td>
+    </tr>
+    <tr style="background-color: #f9f9f9;">
+      <td style="text-align: left; border: 1px solid #ddd; padding: 8px;">Nordland**</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">87.8</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">94.5</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">96.4</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">92.6</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">96.9</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">98.0</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="text-align: left; border: 1px solid #ddd; padding: 8px;">SF-XL Night</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">53.4</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">65.9</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">71.7</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">60.5</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">72.8</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">75.8</td>
+    </tr>
+    <tr style="background-color: #f9f9f9;">
+      <td style="text-align: left; border: 1px solid #ddd; padding: 8px;">SF-XL Occlusion</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">51.3</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">65.8</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">73.7</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">61.8</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">77.6</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">77.6</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="text-align: left; border: 1px solid #ddd; padding: 8px;">SVOX</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">98.4</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.4</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.6</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">98.9</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.6</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.7</td>
+    </tr>
+    <tr style="background-color: #f9f9f9;">
+      <td style="text-align: left; border: 1px solid #ddd; padding: 8px;">SVOX Sun</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">98.1</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.4</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.5</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">98.8</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.8</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.9</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="text-align: left; border: 1px solid #ddd; padding: 8px;">SVOX Night</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">98.3</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.6</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.6</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">98.8</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.8</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.9</td>
+    </tr>
+    <tr style="background-color: #f9f9f9;">
+      <td style="text-align: left; border: 1px solid #ddd; padding: 8px;">SVOX Snow</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.1</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.7</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.8</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.3</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.8</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.9</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="text-align: left; border: 1px solid #ddd; padding: 8px;">SVOX Overcast</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">97.9</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.2</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.3</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">98.3</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.3</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.7</td>
+    </tr>
+    <tr style="background-color: #f9f9f9;">
+      <td style="text-align: left; border: 1px solid #ddd; padding: 8px;">SVOX Rain</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">96.5</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.6</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.7</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">98.2</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.9</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.9</td>
+    </tr>
+    <tr style="background-color: #ffffff;">
+      <td style="text-align: left; border: 1px solid #ddd; padding: 8px;">St. Lucia</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.9</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">100.0</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">100.0</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.9</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">100.0</td>
+      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">100.0</td>
+    </tr>
+  </tbody>
+</table>
+
+
 ## To-do
 - [x] Public release of evaluation code and pretrained FoL model  
-- [x] Public release of the training code (coming soon)  
+- [x] Public release of the training code  
 - [ ] More detailed documentation (coming soon)
+
 
 ## Acknowledgements
 This code is based on the excellent work of:
@@ -103,6 +300,8 @@ This code is based on the excellent work of:
  - [SelaVPR](https://github.com/Lu-Feng/SelaVPR)
  - [CricaVPR](https://github.com/Lu-Feng/CricaVPR)
  - [SALAD](https://github.com/serizba/salad)
+
+
 
 ## Citation
 
