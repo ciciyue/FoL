@@ -95,7 +95,7 @@ python train.py --eval_datasets_folder=.../datasets/ --eval_dataset_name pitts30
 
 Here are the Recall@N results of our FoL model on various standard VPR benchmarks.
 
-<table style="border-collapse: collapse; width: 60%; margin: 1.5em 0; font-family: Arial, sans-serif;">
+<table style="border-collapse: collapse; width: 70%; margin: 1.5em 0; font-family: Arial, sans-serif;">
   <thead>
     <tr style="background-color: #f0f0f0;">
       <th rowspan="2" style="text-align: left; border: 1px solid #ddd; padding: 8px; font-weight: bold;">Dataset</th>
