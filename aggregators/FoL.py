@@ -120,7 +120,10 @@ class FoL(nn.Module):
         p = log_optimal_transport(p, 1-mask, 3)
         p = torch.exp(p)
         p = p[:, :-1, :]
-        weak_supervision_info = None
+        if test:
+            weak_supervision_info = None
+        else:
+            weak_supervision_info = [nn.functional.normalize(x.reshape(BS, -1, 529), p=2, dim=1), p]
 
         # Calculate Confidence Matrix
         confidence_matrix = torch.mean(p, dim=1)
