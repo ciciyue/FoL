@@ -308,12 +308,6 @@ To facilitate immediate visual comparison, the best R@1 value within each datase
 </table>
 
 
-## To-do
-- [x] Public release of evaluation code and pretrained FoL model  
-- [x] Public release of the training code  
-- [ ] More detailed documentation (coming soon)
-
-
 ## Acknowledgements
 This code is based on the excellent work of:
  - [DINOv2](https://github.com/facebookresearch/dinov2)
