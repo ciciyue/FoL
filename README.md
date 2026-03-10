@@ -295,13 +295,14 @@ This code is based on the excellent work of:
  - [SelaVPR](https://github.com/Lu-Feng/SelaVPR), [CricaVPR](https://github.com/Lu-Feng/CricaVPR)
  - [SALAD](https://github.com/serizba/salad)
  - [Visual Geo-localization benchmark](https://github.com/gmberton/deep-visual-geo-localization-benchmark), [VPR-datasets-downloader](https://github.com/gmberton/VPR-datasets-downloader)
+ - [GSV-Cities](https://github.com/amaralibey/gsv-cities), [MixVPR](https://github.com/amaralibey/MixVPR)
 
 ## Citation
 
 If you find this repo useful for your research, please cite the paper
 
 ```
-@inproceedings{wang2025focus,
+@inproceedings{FoL,
   title={Focus on Local: Finding Reliable Discriminative Regions for Visual Place Recognition},
   author={Wang, Changwei and Chen, Shunpeng and Song, Yukun and Xu, Rongtao and Zhang, Zherui and Zhang, Jiguang and Yang, Haoran and Zhang, Yu and Fu, Kexue and Du, Shide and others},
   booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
