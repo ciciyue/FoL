@@ -7,29 +7,9 @@
 
 This is the official repository for the AAAI 2025 paper "FoL" available at [AAAI Paper Page](https://ojs.aaai.org/index.php/AAAI/article/view/32811). In addition, our paper and its extensive supplementary materials can be found on [arXiv](https://arxiv.org/abs/2504.09881).
 
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/focus-on-local-finding-reliable-1/visual-place-recognition-on-pittsburgh-250k)](https://paperswithcode.com/sota/visual-place-recognition-on-pittsburgh-250k?p=focus-on-local-finding-reliable-1)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/focus-on-local-finding-reliable-1/visual-place-recognition-on-nordland-2760)](https://paperswithcode.com/sota/visual-place-recognition-on-nordland-2760?p=focus-on-local-finding-reliable-1)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/focus-on-local-finding-reliable-1/visual-place-recognition-on-amstertime)](https://paperswithcode.com/sota/visual-place-recognition-on-amstertime?p=focus-on-local-finding-reliable-1)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/focus-on-local-finding-reliable-1/visual-place-recognition-on-eynsham)](https://paperswithcode.com/sota/visual-place-recognition-on-eynsham?p=focus-on-local-finding-reliable-1)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/focus-on-local-finding-reliable-1/visual-place-recognition-on-sf-xl-night)](https://paperswithcode.com/sota/visual-place-recognition-on-sf-xl-night?p=focus-on-local-finding-reliable-1)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/focus-on-local-finding-reliable-1/visual-place-recognition-on-sf-xl-occlusion)](https://paperswithcode.com/sota/visual-place-recognition-on-sf-xl-occlusion?p=focus-on-local-finding-reliable-1)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/focus-on-local-finding-reliable-1/visual-place-recognition-on-svox)](https://paperswithcode.com/sota/visual-place-recognition-on-svox?p=focus-on-local-finding-reliable-1)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/focus-on-local-finding-reliable-1/visual-place-recognition-on-svox-night)](https://paperswithcode.com/sota/visual-place-recognition-on-svox-night?p=focus-on-local-finding-reliable-1)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/focus-on-local-finding-reliable-1/visual-place-recognition-on-svox-overcast)](https://paperswithcode.com/sota/visual-place-recognition-on-svox-overcast?p=focus-on-local-finding-reliable-1)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/focus-on-local-finding-reliable-1/visual-place-recognition-on-svox-rain)](https://paperswithcode.com/sota/visual-place-recognition-on-svox-rain?p=focus-on-local-finding-reliable-1)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/focus-on-local-finding-reliable-1/visual-place-recognition-on-svox-snow)](https://paperswithcode.com/sota/visual-place-recognition-on-svox-snow?p=focus-on-local-finding-reliable-1)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/focus-on-local-finding-reliable-1/visual-place-recognition-on-svox-sun)](https://paperswithcode.com/sota/visual-place-recognition-on-svox-sun?p=focus-on-local-finding-reliable-1)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/focus-on-local-finding-reliable-1/visual-place-recognition-on-mapillary-test)](https://paperswithcode.com/sota/visual-place-recognition-on-mapillary-test?p=focus-on-local-finding-reliable-1)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/focus-on-local-finding-reliable-1/visual-place-recognition-on-nordland)](https://paperswithcode.com/sota/visual-place-recognition-on-nordland?p=focus-on-local-finding-reliable-1)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/focus-on-local-finding-reliable-1/visual-place-recognition-on-sped)](https://paperswithcode.com/sota/visual-place-recognition-on-sped?p=focus-on-local-finding-reliable-1)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/focus-on-local-finding-reliable-1/visual-place-recognition-on-pittsburgh-30k)](https://paperswithcode.com/sota/visual-place-recognition-on-pittsburgh-30k?p=focus-on-local-finding-reliable-1)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/focus-on-local-finding-reliable-1/visual-place-recognition-on-st-lucia)](https://paperswithcode.com/sota/visual-place-recognition-on-st-lucia?p=focus-on-local-finding-reliable-1)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/focus-on-local-finding-reliable-1/visual-place-recognition-on-tokyo247)](https://paperswithcode.com/sota/visual-place-recognition-on-tokyo247?p=focus-on-local-finding-reliable-1)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/focus-on-local-finding-reliable-1/visual-place-recognition-on-mapillary-val)](https://paperswithcode.com/sota/visual-place-recognition-on-mapillary-val?p=focus-on-local-finding-reliable-1)
-
 ## Summary
 
-We introduce **Focus on Local (FoL)**, a two-stage Visual Place Recognition (VPR) approach that enhances image retrieval and re-ranking by identifying and leveraging **reliable discriminative local regions**. Our method introduces three key contributions:
+We introduce Focus on Local **(FoL)**, a two-stage Visual Place Recognition (VPR) approach that enhances image retrieval and re-ranking by identifying and leveraging **reliable discriminative local regions**. Our method introduces three key contributions:
 
 - **Reliable Discriminative Region Modeling**: We propose two novel loss functions—**Extraction-Aggregation Spatial Alignment Loss (SAL)** and **Foreground-Background Contrast Enhancement Loss (CEL)**—to explicitly learn discriminative local regions.
 - **Weakly-Supervised Local Feature Learning**: We leverage pseudo-correspondences from aggregated global features to improve local matching supervision.
@@ -57,8 +37,7 @@ pip install huggingface_hub
 
 You can download our pretrained FoL model either via Google Drive or directly from Hugging Face:
 
-- **Google Drive**  
-  [here](https://drive.google.com/file/d/1-7LE_4Q0zL3S8lGVEH0Ob1NCFXq4KfJ8/view?usp=sharing)
+- **Google Drive:** [here](https://drive.google.com/file/d/1-7LE_4Q0zL3S8lGVEH0Ob1NCFXq4KfJ8/view?usp=sharing)
 
 - **Hugging Face Hub**  
   ```python
@@ -307,16 +286,15 @@ To facilitate immediate visual comparison, the best R@1 value within each datase
   </tbody>
 </table>
 
+## Related Work
+Our another ICLR 2026 work (single-stage VPR based on DINOv2) [SAGE](https://openreview.net/forum?id=DCpbEXqPvS) achieved SOTA performance on several datasets. The code is released at [here](https://github.com/chenshunpeng/SAGE).
+
 
 ## Acknowledgements
 This code is based on the excellent work of:
- - [DINOv2](https://github.com/facebookresearch/dinov2)
- - [AnyLoc](https://github.com/AnyLoc/AnyLoc)
- - [SelaVPR](https://github.com/Lu-Feng/SelaVPR)
- - [CricaVPR](https://github.com/Lu-Feng/CricaVPR)
+ - [SelaVPR](https://github.com/Lu-Feng/SelaVPR), [CricaVPR](https://github.com/Lu-Feng/CricaVPR)
  - [SALAD](https://github.com/serizba/salad)
-
-
+ - [Visual Geo-localization benchmark](https://github.com/gmberton/deep-visual-geo-localization-benchmark), [VPR-datasets-downloader](https://github.com/gmberton/VPR-datasets-downloader)
 
 ## Citation
 
