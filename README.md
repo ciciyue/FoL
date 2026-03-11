@@ -19,13 +19,26 @@ You may refer to our **anonymous conference version** of the paper: [anonymous c
 
 <img src="image/pipeline.jpg" width="800px">
 
-## Setup
-
-Tested on **Pytorch 2.0.0** with **CUDA 11.7**. To set up the environment:
-
+## Setup & Requirements
+**Quick install:**
 ```bash
-conda env create -f environment.yml
+# create and activate conda env
+conda create -n fol python=3.9.19 -y
+conda activate fol
+
+# install dependencies
+pip install -r requirements.txt
 ```
+**Key dependencies:**
+```
+torch==2.0.0
+torchvision==0.15.1
+faiss-gpu==1.7.2
+scikit-learn==1.3.0
+numpy==1.26.4
+opencv-python==4.10.0.84
+```
+> **Note — reproducibility:** The reranking step is sensitive to small numerical differences across `faiss-gpu`, `torch`, and `numpy` versions. Use the exact versions (in [requirements.txt](https://github.com/chenshunpeng/FoL/blob/main/requirements.txt)) to match paper results.
 
 Install the Hugging Face Hub client (if you want to pull weights directly):
 
