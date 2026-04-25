@@ -91,7 +91,7 @@ python train.py --eval_datasets_folder=.../datasets/ --eval_dataset_name pitts30
 
 ## Performance
  
-This table lists R1, R5, and R10 for FoL across common VPR datasets, showing both **FoL-global** and **FoL-reranking** results. The best R1 value within each dataset row is typeset in <strong style="color:#d32f2f;">bold</strong>. All results are reported for ViT-L at 504×504 resolution; in the table, `G` and `R` denote `global` and `re-ranking`, respectively.
+This table lists R1, R5, and R10 for FoL across common VPR datasets, showing both **FoL-global** and **FoL-reranking** results. The best R1 value within each dataset row is typeset in $\color{red}{\mathbf{bold}}$. All results are reported for ViT-L at 504×504.
 
 For Nordland variants: `Nordland*` uses 2,760 summer queries against a 27,592-image winter database, while `Nordland**` uses the full 27,592 winter queries against a 27,592-image summer database.
 
