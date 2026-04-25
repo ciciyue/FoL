@@ -115,6 +115,40 @@ This table lists R1, R5, and R10 for FoL across common VPR datasets, showing bot
   </tbody>
 </table>
 
+### Additional Results at 322×322
+
+The following table reports results at 322×322 on six datasets for both backbones.
+
+<table style="width:100%; border-collapse: collapse; font-size: 12px;">
+  <thead>
+    <tr>
+      <th rowspan="3" style="text-align:left;">Dataset</th>
+      <th colspan="6"><a href="https://drive.google.com/file/d/1-7LE_4Q0zL3S8lGVEH0Ob1NCFXq4KfJ8/view?usp=sharing">ViT-L</a></th>
+      <th colspan="6"><a href="https://drive.google.com/file/d/1Z05ZLFliQXOPJMH1YPdXqYjzC15-0nam/view?usp=sharing">ViT-B</a></th>
+    </tr>
+    <tr>
+      <th colspan="3">global</th>
+      <th colspan="3">re-ranking</th>
+      <th colspan="3">global</th>
+      <th colspan="3">re-ranking</th>
+    </tr>
+    <tr>
+      <th>R1</th><th>R5</th><th>R10</th>
+      <th>R1</th><th>R5</th><th>R10</th>
+      <th>R1</th><th>R5</th><th>R10</th>
+      <th>R1</th><th>R5</th><th>R10</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Pitts30k-test</td><td>93.6</td><td>96.9</td><td>97.9</td><td><strong>93.9</strong></td><td>96.9</td><td>98.1</td><td>92.1</td><td>96.4</td><td>97.6</td><td><strong>93.1</strong></td><td>96.9</td><td>97.7</td></tr>
+    <tr><td>MSLS-val</td><td><strong>92.8</strong></td><td>96.9</td><td>97.2</td><td>90.1</td><td>95.7</td><td>96.9</td><td>91.1</td><td>95.7</td><td>96.4</td><td><strong>91.5</strong></td><td>96.2</td><td>96.8</td></tr>
+    <tr><td>Nordland**</td><td>83.8</td><td>92.6</td><td>95.1</td><td><strong>87.9</strong></td><td>94.8</td><td>96.6</td><td>72.7</td><td>85.5</td><td>89.6</td><td><strong>85.4</strong></td><td>92.7</td><td>94.8</td></tr>
+    <tr><td>Tokyo24/7</td><td>96.5</td><td>98.1</td><td>98.4</td><td><strong>97.1</strong></td><td>97.8</td><td>98.7</td><td>94.6</td><td>96.5</td><td>96.8</td><td><strong>97.5</strong></td><td>98.1</td><td>98.4</td></tr>
+    <tr><td>Nordland*</td><td>74.1</td><td>88.8</td><td>92.2</td><td><strong>80.8</strong></td><td>92.0</td><td>94.7</td><td>62.5</td><td>80.3</td><td>85.0</td><td><strong>78.2</strong></td><td>90.2</td><td>92.9</td></tr>
+    <tr><td>Eynsham</td><td>91.5</td><td>95.1</td><td>96.1</td><td><strong>91.7</strong></td><td>95.4</td><td>96.4</td><td><strong>91.3</strong></td><td>95.2</td><td>96.0</td><td>91.3</td><td>95.1</td><td>96.1</td></tr>
+  </tbody>
+</table>
+
 ## Related Work
 Our another ICLR 2026 work (single-stage VPR based on DINOv2) [SAGE](https://openreview.net/forum?id=DCpbEXqPvS) achieved SOTA performance on several datasets. The code is released at [here](https://github.com/chenshunpeng/SAGE).
 
