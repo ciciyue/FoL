@@ -50,7 +50,11 @@ pip install huggingface_hub
 
 You can download our pretrained FoL model either via Google Drive or directly from Hugging Face:
 
-- **Google Drive:** [here](https://drive.google.com/file/d/1-7LE_4Q0zL3S8lGVEH0Ob1NCFXq4KfJ8/view?usp=sharing)
+- **Google Drive (single files):**
+  - FoL (ViT-L, FoL_large.pth): [link](https://drive.google.com/file/d/1-7LE_4Q0zL3S8lGVEH0Ob1NCFXq4KfJ8/view?usp=sharing)
+  - FoL (ViT-B, FoL_base.pth): [link](https://drive.google.com/file/d/1Z05ZLFliQXOPJMH1YPdXqYjzC15-0nam/view?usp=sharing)
+
+- **Google Drive (all models):** Shared folder "FoL_Trained_Models": [link](https://drive.google.com/drive/folders/1d3uEHdnzgWbGnj2g1ffLzLLI3pKuV7Vz?usp=sharing)
 
 - **Hugging Face Hub**  
   ```python
@@ -63,6 +67,8 @@ You can download our pretrained FoL model either via Google Drive or directly fr
   )
   print("Downloaded weights to:", FoLpath)
   ```
+
+> **Note:** Hugging Face Hub downloads the ViT-L checkpoint (`FoL_large.pth`) by default. For ViT-B (`FoL_base.pth`), use the Google Drive links above.
 
 ---
 
@@ -84,220 +90,20 @@ python train.py --eval_datasets_folder=.../datasets/ --eval_dataset_name pitts30
 ```
 
 ## Performance
+ 
+This table lists Recall@1, R@5, and R@10 for FoL across common VPR datasets, showing both **FoL-global** and **FoL-reranking** results. The best R@1 value within each dataset row is typeset in **bold**. All results are reported for ViT-L at 504×504 resolution; in the table, `G` and `R` denote `global` and `re-ranking`, respectively.
 
-This table lists Recall@1, R@5 and R@10 for our FoL model across common VPR datasets, showing results for both **FoL-global** and **FoL-reranking**. 
-To facilitate immediate visual comparison, the best R@1 value within each dataset row is typeset in **bold**.
-
-<table style="border-collapse: collapse; width: 70%; margin: 1.5em 0; font-family: Arial, sans-serif;">
-  <thead>
-    <tr style="background-color: #f0f0f0;">
-      <th rowspan="2" style="text-align: center; border: 1px solid #ddd; padding: 8px; font-weight: bold;">ID</th>
-      <th rowspan="2" style="text-align: center; border: 1px solid #ddd; padding: 8px; font-weight: bold;">Dataset</th>
-      <th colspan="3" style="text-align: center; border: 1px solid #ddd; padding: 8px; font-weight: bold;">FoL-global</th>
-      <th colspan="3" style="text-align: center; border: 1px solid #ddd; padding: 8px; font-weight: bold;">FoL-reranking</th>
-    </tr>
-    <tr style="background-color: #f0f0f0;">
-      <th style="text-align: center; border: 1px solid #ddd; padding: 8px; font-weight: bold;">R@1</th>
-      <th style="text-align: center; border: 1px solid #ddd; padding: 8px; font-weight: bold;">R@5</th>
-      <th style="text-align: center; border: 1px solid #ddd; padding: 8px; font-weight: bold;">R@10</th>
-      <th style="text-align: center; border: 1px solid #ddd; padding: 8px; font-weight: bold;">R@1</th>
-      <th style="text-align: center; border: 1px solid #ddd; padding: 8px; font-weight: bold;">R@5</th>
-      <th style="text-align: center; border: 1px solid #ddd; padding: 8px; font-weight: bold;">R@10</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr style="background-color: #ffffff;">
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">1</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">Pitts250k-test</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">96.5</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.1</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.5</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;"><strong>97.0</strong></td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.2</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.5</td>
-    </tr>
-    <tr style="background-color: #f9f9f9;">
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">2</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">MSLS-val</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">93.1</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">96.9</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">97.4</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;"><strong>93.5</strong></td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">96.9</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">97.6</td>
-    </tr>
-    <tr style="background-color: #ffffff;">
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">3</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">MSLS-challenge</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">78.7</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">90.8</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">93.0</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;"><strong>80.0</strong></td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">90.9</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">93.0</td>
-    </tr>
-    <tr style="background-color: #f9f9f9;">
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">4</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">Tokyo24/7</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">96.2</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">98.7</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">98.7</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;"><strong>98.4</strong></td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.1</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.4</td>
-    </tr>
-    <tr style="background-color: #ffffff;">
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">5</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">Pitts30k</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">93.9</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">97.2</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">98.1</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;"><strong>94.5</strong></td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">97.4</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">98.2</td>
-    </tr>
-    <tr style="background-color: #f9f9f9;">
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">6</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">Sped</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;"><strong>92.1</strong></td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">96.5</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">98.0</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">91.8</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">96.5</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">97.4</td>
-    </tr>
-    <tr style="background-color: #ffffff;">
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">7</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">Amstertime</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">64.6</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">84.3</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">88.2</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;"><strong>70.1</strong></td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">89.0</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">91.8</td>
-    </tr>
-    <tr style="background-color: #f9f9f9;">
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">8</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">Eynsham</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">91.7</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">95.3</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">96.2</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;"><strong>92.4</strong></td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">95.8</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">96.6</td>
-    </tr>
-    <tr style="background-color: #ffffff;">
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">9</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">Nordland*</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">78.3</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">90.8</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">94.0</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;"><strong>85.8</strong></td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">94.9</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">96.8</td>
-    </tr>
-    <tr style="background-color: #f9f9f9;">
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">10</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">Nordland**</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">87.8</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">94.5</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">96.4</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;"><strong>92.6</strong></td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">96.9</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">98.0</td>
-    </tr>
-    <tr style="background-color: #ffffff;">
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">11</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">SF-XL Night</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">53.4</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">65.9</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">71.7</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;"><strong>60.5</strong></td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">72.8</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">75.8</td>
-    </tr>
-    <tr style="background-color: #f9f9f9;">
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">12</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">SF-XL Occlusion</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">51.3</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">65.8</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">73.7</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;"><strong>61.8</strong></td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">77.6</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">77.6</td>
-    </tr>
-    <tr style="background-color: #ffffff;">
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">13</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">SVOX</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">98.4</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.4</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.6</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;"><strong>98.9</strong></td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.6</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.7</td>
-    </tr>
-    <tr style="background-color: #f9f9f9;">
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">14</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">SVOX Sun</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">98.1</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.4</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.5</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;"><strong>98.8</strong></td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.8</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.9</td>
-    </tr>
-    <tr style="background-color: #ffffff;">
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">15</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">SVOX Night</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">98.3</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.6</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.6</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;"><strong>98.8</strong></td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.8</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.9</td>
-    </tr>
-    <tr style="background-color: #f9f9f9;">
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">16</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">SVOX Snow</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.1</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.7</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.8</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;"><strong>99.3</strong></td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.8</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.9</td>
-    </tr>
-    <tr style="background-color: #ffffff;">
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">17</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">SVOX Overcast</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">97.9</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.2</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.3</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;"><strong>98.3</strong></td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.3</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.7</td>
-    </tr>
-    <tr style="background-color: #f9f9f9;">
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">18</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">SVOX Rain</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">96.5</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.6</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.7</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;"><strong>98.2</strong></td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.9</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">99.9</td>
-    </tr>
-    <tr style="background-color: #ffffff;">
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">19</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">St. Lucia</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;"><strong>99.9</strong></td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">100.0</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">100.0</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;"><strong>99.9</strong></td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">100.0</td>
-      <td style="text-align: center; border: 1px solid #ddd; padding: 8px;">100.0</td>
-    </tr>
-  </tbody>
-</table>
+| ID | Dataset | G R@1 | G R@5 | G R@10 | │ | R R@1 | R R@5 | R R@10 | │ | ID | Dataset | G R@1 | G R@5 | G R@10 | │ | R R@1 | R R@5 | R R@10 |
+|---:|:--|---:|---:|---:|:--:|---:|---:|---:|:--:|---:|:--|---:|---:|---:|:--:|---:|---:|---:|
+| 1 | Pitts250k-test | 96.5 | 99.1 | 99.5 | │ | **97.0** | 99.2 | 99.5 | │ | 2 | MSLS-val | 93.1 | 96.9 | 97.4 | │ | **93.5** | 96.9 | 97.6 |
+| 3 | MSLS-challenge | 78.7 | 90.8 | 93.0 | │ | **80.0** | 90.9 | 93.0 | │ | 4 | Tokyo24/7 | 96.2 | 98.7 | 98.7 | │ | **98.4** | 99.1 | 99.4 |
+| 5 | Pitts30k | 93.9 | 97.2 | 98.1 | │ | **94.5** | 97.4 | 98.2 | │ | 6 | Sped | **92.1** | 96.5 | 98.0 | │ | 91.8 | 96.5 | 97.4 |
+| 7 | Amstertime | 64.6 | 84.3 | 88.2 | │ | **70.1** | 89.0 | 91.8 | │ | 8 | Eynsham | 91.7 | 95.3 | 96.2 | │ | **92.4** | 95.8 | 96.6 |
+| 9 | Nordland* | 78.3 | 90.8 | 94.0 | │ | **85.8** | 94.9 | 96.8 | │ | 10 | Nordland** | 87.8 | 94.5 | 96.4 | │ | **92.6** | 96.9 | 98.0 |
+| 11 | SF-XL Night | 53.4 | 65.9 | 71.7 | │ | **60.5** | 72.8 | 75.8 | │ | 12 | SF-XL Occlusion | 51.3 | 65.8 | 73.7 | │ | **61.8** | 77.6 | 77.6 |
+| 13 | SVOX | 98.4 | 99.4 | 99.6 | │ | **98.9** | 99.6 | 99.7 | │ | 14 | SVOX Sun | 98.1 | 99.4 | 99.5 | │ | **98.8** | 99.8 | 99.9 |
+| 15 | SVOX Night | 98.3 | 99.6 | 99.6 | │ | **98.8** | 99.8 | 99.9 | │ | 16 | SVOX Snow | 99.1 | 99.7 | 99.8 | │ | **99.3** | 99.8 | 99.9 |
+| 17 | SVOX Overcast | 97.9 | 99.2 | 99.3 | │ | **98.3** | 99.3 | 99.7 | │ | 18 | SVOX Rain | 96.5 | 99.6 | 99.7 | │ | **98.2** | 99.9 | 99.9 |
 
 ## Related Work
 Our another ICLR 2026 work (single-stage VPR based on DINOv2) [SAGE](https://openreview.net/forum?id=DCpbEXqPvS) achieved SOTA performance on several datasets. The code is released at [here](https://github.com/chenshunpeng/SAGE).
