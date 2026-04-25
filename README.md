@@ -91,7 +91,7 @@ python train.py --eval_datasets_folder=.../datasets/ --eval_dataset_name pitts30
 
 ## Performance
  
-This table lists R1, R5, and R10 for FoL across common VPR datasets, showing both **FoL-global** and **FoL-reranking** results. The best R1 value within each dataset row is typeset in **bold**. All results are reported for ViT-L at 504×504 resolution.
+This table lists R1, R5, and R10 for FoL across common VPR datasets, showing both **FoL-global** and **FoL-reranking** results. The best R1 value within each dataset row is typeset in **bold**. All results are reported for ViT-L at 504×504.
 
 <table style="width:100%; border-collapse: collapse; font-size: 12px;">
   <thead>
