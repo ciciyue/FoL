@@ -91,7 +91,9 @@ python train.py --eval_datasets_folder=.../datasets/ --eval_dataset_name pitts30
 
 ## Performance
  
-This table lists R1, R5, and R10 for FoL across common VPR datasets, showing both **FoL-global** and **FoL-reranking** results. The best R1 value within each dataset row is typeset in **bold**. All results are reported for ViT-L at 504×504.
+This table lists R1, R5, and R10 for FoL across common VPR datasets, showing both **FoL-global** and **FoL-reranking** results. The best R1 value within each dataset row is typeset in <strong style="color:#d32f2f;">bold</strong>. All results are reported for ViT-L at 504×504 resolution; in the table, `G` and `R` denote `global` and `re-ranking`, respectively.
+
+For Nordland variants: `Nordland*` uses 2,760 summer queries against a 27,592-image winter database, while `Nordland**` uses the full 27,592 winter queries against a 27,592-image summer database.
 
 <table style="width:100%; border-collapse: collapse; font-size: 12px;">
   <thead>
@@ -111,15 +113,15 @@ This table lists R1, R5, and R10 for FoL across common VPR datasets, showing bot
     </tr>
   </thead>
   <tbody>
-    <tr><td>Pitts250k-test</td><td>96.5</td><td>99.1</td><td>99.5</td><td><strong>97.0</strong></td><td>99.2</td><td>99.5</td><td>MSLS-val</td><td>93.1</td><td>96.9</td><td>97.4</td><td><strong>93.5</strong></td><td>96.9</td><td>97.6</td></tr>
-    <tr><td>MSLS-challenge</td><td>78.7</td><td>90.8</td><td>93.0</td><td><strong>80.0</strong></td><td>90.9</td><td>93.0</td><td>Tokyo24/7</td><td>96.2</td><td>98.7</td><td>98.7</td><td><strong>98.4</strong></td><td>99.1</td><td>99.4</td></tr>
-    <tr><td>Pitts30k</td><td>93.9</td><td>97.2</td><td>98.1</td><td><strong>94.5</strong></td><td>97.4</td><td>98.2</td><td>Sped</td><td><strong>92.1</strong></td><td>96.5</td><td>98.0</td><td>91.8</td><td>96.5</td><td>97.4</td></tr>
-    <tr><td>Amstertime</td><td>64.6</td><td>84.3</td><td>88.2</td><td><strong>70.1</strong></td><td>89.0</td><td>91.8</td><td>Eynsham</td><td>91.7</td><td>95.3</td><td>96.2</td><td><strong>92.4</strong></td><td>95.8</td><td>96.6</td></tr>
-    <tr><td>Nordland*</td><td>78.3</td><td>90.8</td><td>94.0</td><td><strong>85.8</strong></td><td>94.9</td><td>96.8</td><td>Nordland**</td><td>87.8</td><td>94.5</td><td>96.4</td><td><strong>92.6</strong></td><td>96.9</td><td>98.0</td></tr>
-    <tr><td>SF-XL Night</td><td>53.4</td><td>65.9</td><td>71.7</td><td><strong>60.5</strong></td><td>72.8</td><td>75.8</td><td>SF-XL Occlusion</td><td>51.3</td><td>65.8</td><td>73.7</td><td><strong>61.8</strong></td><td>77.6</td><td>77.6</td></tr>
-    <tr><td>SVOX</td><td>98.4</td><td>99.4</td><td>99.6</td><td><strong>98.9</strong></td><td>99.6</td><td>99.7</td><td>SVOX Sun</td><td>98.1</td><td>99.4</td><td>99.5</td><td><strong>98.8</strong></td><td>99.8</td><td>99.9</td></tr>
-    <tr><td>SVOX Night</td><td>98.3</td><td>99.6</td><td>99.6</td><td><strong>98.8</strong></td><td>99.8</td><td>99.9</td><td>SVOX Snow</td><td>99.1</td><td>99.7</td><td>99.8</td><td><strong>99.3</strong></td><td>99.8</td><td>99.9</td></tr>
-    <tr><td>SVOX Overcast</td><td>97.9</td><td>99.2</td><td>99.3</td><td><strong>98.3</strong></td><td>99.3</td><td>99.7</td><td>SVOX Rain</td><td>96.5</td><td>99.6</td><td>99.7</td><td><strong>98.2</strong></td><td>99.9</td><td>99.9</td></tr>
+    <tr><td>Pitts250k-test</td><td>96.5</td><td>99.1</td><td>99.5</td><td><strong style="color:#d32f2f;">97.0</strong></td><td>99.2</td><td>99.5</td><td>MSLS-val</td><td>93.1</td><td>96.9</td><td>97.4</td><td><strong style="color:#d32f2f;">93.5</strong></td><td>96.9</td><td>97.6</td></tr>
+    <tr><td>MSLS-challenge</td><td>78.7</td><td>90.8</td><td>93.0</td><td><strong style="color:#d32f2f;">80.0</strong></td><td>90.9</td><td>93.0</td><td>Tokyo24/7</td><td>96.2</td><td>98.7</td><td>98.7</td><td><strong style="color:#d32f2f;">98.4</strong></td><td>99.1</td><td>99.4</td></tr>
+    <tr><td>Pitts30k</td><td>93.9</td><td>97.2</td><td>98.1</td><td><strong style="color:#d32f2f;">94.5</strong></td><td>97.4</td><td>98.2</td><td>Sped</td><td><strong style="color:#d32f2f;">92.1</strong></td><td>96.5</td><td>98.0</td><td>91.8</td><td>96.5</td><td>97.4</td></tr>
+    <tr><td>Amstertime</td><td>64.6</td><td>84.3</td><td>88.2</td><td><strong style="color:#d32f2f;">70.1</strong></td><td>89.0</td><td>91.8</td><td>Eynsham</td><td>91.7</td><td>95.3</td><td>96.2</td><td><strong style="color:#d32f2f;">92.4</strong></td><td>95.8</td><td>96.6</td></tr>
+    <tr><td>Nordland*</td><td>78.3</td><td>90.8</td><td>94.0</td><td><strong style="color:#d32f2f;">85.8</strong></td><td>94.9</td><td>96.8</td><td>Nordland**</td><td>87.8</td><td>94.5</td><td>96.4</td><td><strong style="color:#d32f2f;">92.6</strong></td><td>96.9</td><td>98.0</td></tr>
+    <tr><td>SF-XL Night</td><td>53.4</td><td>65.9</td><td>71.7</td><td><strong style="color:#d32f2f;">60.5</strong></td><td>72.8</td><td>75.8</td><td>SF-XL Occlusion</td><td>51.3</td><td>65.8</td><td>73.7</td><td><strong style="color:#d32f2f;">61.8</strong></td><td>77.6</td><td>77.6</td></tr>
+    <tr><td>SVOX</td><td>98.4</td><td>99.4</td><td>99.6</td><td><strong style="color:#d32f2f;">98.9</strong></td><td>99.6</td><td>99.7</td><td>SVOX Sun</td><td>98.1</td><td>99.4</td><td>99.5</td><td><strong style="color:#d32f2f;">98.8</strong></td><td>99.8</td><td>99.9</td></tr>
+    <tr><td>SVOX Night</td><td>98.3</td><td>99.6</td><td>99.6</td><td><strong style="color:#d32f2f;">98.8</strong></td><td>99.8</td><td>99.9</td><td>SVOX Snow</td><td>99.1</td><td>99.7</td><td>99.8</td><td><strong style="color:#d32f2f;">99.3</strong></td><td>99.8</td><td>99.9</td></tr>
+    <tr><td>SVOX Overcast</td><td>97.9</td><td>99.2</td><td>99.3</td><td><strong style="color:#d32f2f;">98.3</strong></td><td>99.3</td><td>99.7</td><td>SVOX Rain</td><td>96.5</td><td>99.6</td><td>99.7</td><td><strong style="color:#d32f2f;">98.2</strong></td><td>99.9</td><td>99.9</td></tr>
   </tbody>
 </table>
 
@@ -148,12 +150,12 @@ The following table reports results at 322×322 on six datasets for both backbon
     </tr>
   </thead>
   <tbody>
-    <tr><td>Pitts30k-test</td><td>93.6</td><td>96.9</td><td>97.9</td><td><strong>93.9</strong></td><td>96.9</td><td>98.1</td><td>92.1</td><td>96.4</td><td>97.6</td><td><strong>93.1</strong></td><td>96.9</td><td>97.7</td></tr>
-    <tr><td>MSLS-val</td><td><strong>92.8</strong></td><td>96.9</td><td>97.2</td><td>90.1</td><td>95.7</td><td>96.9</td><td>91.1</td><td>95.7</td><td>96.4</td><td><strong>91.5</strong></td><td>96.2</td><td>96.8</td></tr>
-    <tr><td>Nordland**</td><td>83.8</td><td>92.6</td><td>95.1</td><td><strong>87.9</strong></td><td>94.8</td><td>96.6</td><td>72.7</td><td>85.5</td><td>89.6</td><td><strong>85.4</strong></td><td>92.7</td><td>94.8</td></tr>
-    <tr><td>Tokyo24/7</td><td>96.5</td><td>98.1</td><td>98.4</td><td><strong>97.1</strong></td><td>97.8</td><td>98.7</td><td>94.6</td><td>96.5</td><td>96.8</td><td><strong>97.5</strong></td><td>98.1</td><td>98.4</td></tr>
-    <tr><td>Nordland*</td><td>74.1</td><td>88.8</td><td>92.2</td><td><strong>80.8</strong></td><td>92.0</td><td>94.7</td><td>62.5</td><td>80.3</td><td>85.0</td><td><strong>78.2</strong></td><td>90.2</td><td>92.9</td></tr>
-    <tr><td>Eynsham</td><td>91.5</td><td>95.1</td><td>96.1</td><td><strong>91.7</strong></td><td>95.4</td><td>96.4</td><td><strong>91.3</strong></td><td>95.2</td><td>96.0</td><td>91.3</td><td>95.1</td><td>96.1</td></tr>
+    <tr><td>Pitts30k-test</td><td>93.6</td><td>96.9</td><td>97.9</td><td><strong style="color:#d32f2f;">93.9</strong></td><td>96.9</td><td>98.1</td><td>92.1</td><td>96.4</td><td>97.6</td><td><strong style="color:#d32f2f;">93.1</strong></td><td>96.9</td><td>97.7</td></tr>
+    <tr><td>MSLS-val</td><td><strong style="color:#d32f2f;">92.8</strong></td><td>96.9</td><td>97.2</td><td>90.1</td><td>95.7</td><td>96.9</td><td>91.1</td><td>95.7</td><td>96.4</td><td><strong style="color:#d32f2f;">91.5</strong></td><td>96.2</td><td>96.8</td></tr>
+    <tr><td>Nordland**</td><td>83.8</td><td>92.6</td><td>95.1</td><td><strong style="color:#d32f2f;">87.9</strong></td><td>94.8</td><td>96.6</td><td>72.7</td><td>85.5</td><td>89.6</td><td><strong style="color:#d32f2f;">85.4</strong></td><td>92.7</td><td>94.8</td></tr>
+    <tr><td>Tokyo24/7</td><td>96.5</td><td>98.1</td><td>98.4</td><td><strong style="color:#d32f2f;">97.1</strong></td><td>97.8</td><td>98.7</td><td>94.6</td><td>96.5</td><td>96.8</td><td><strong style="color:#d32f2f;">97.5</strong></td><td>98.1</td><td>98.4</td></tr>
+    <tr><td>Nordland*</td><td>74.1</td><td>88.8</td><td>92.2</td><td><strong style="color:#d32f2f;">80.8</strong></td><td>92.0</td><td>94.7</td><td>62.5</td><td>80.3</td><td>85.0</td><td><strong style="color:#d32f2f;">78.2</strong></td><td>90.2</td><td>92.9</td></tr>
+    <tr><td>Eynsham</td><td>91.5</td><td>95.1</td><td>96.1</td><td><strong style="color:#d32f2f;">91.7</strong></td><td>95.4</td><td>96.4</td><td><strong style="color:#d32f2f;">91.3</strong></td><td>95.2</td><td>96.0</td><td><strong style="color:#d32f2f;">91.3</strong></td><td>95.1</td><td>96.1</td></tr>
   </tbody>
 </table>
 
