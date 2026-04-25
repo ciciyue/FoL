@@ -93,17 +93,27 @@ python train.py --eval_datasets_folder=.../datasets/ --eval_dataset_name pitts30
  
 This table lists R1, R5, and R10 for FoL across common VPR datasets, showing both **FoL-global** and **FoL-reranking** results. The best R1 value within each dataset row is typeset in **bold**. All results are reported for ViT-L at 504×504 resolution; in the table, `G` and `R` denote `global` and `re-ranking`, respectively.
 
-| Dataset | G R1 | G R5 | G R10 | R R1 | R R5 | R R10 | Dataset | G R1 | G R5 | G R10 | R R1 | R R5 | R R10 |
-|:--|---:|---:|---:|---:|---:|---:|:--|---:|---:|---:|---:|---:|---:|
-| Pitts250k-test | 96.5 | 99.1 | 99.5 | **97.0** | 99.2 | 99.5 | MSLS-val | 93.1 | 96.9 | 97.4 | **93.5** | 96.9 | 97.6 |
-| MSLS-challenge | 78.7 | 90.8 | 93.0 | **80.0** | 90.9 | 93.0 | Tokyo24/7 | 96.2 | 98.7 | 98.7 | **98.4** | 99.1 | 99.4 |
-| Pitts30k | 93.9 | 97.2 | 98.1 | **94.5** | 97.4 | 98.2 | Sped | **92.1** | 96.5 | 98.0 | 91.8 | 96.5 | 97.4 |
-| Amstertime | 64.6 | 84.3 | 88.2 | **70.1** | 89.0 | 91.8 | Eynsham | 91.7 | 95.3 | 96.2 | **92.4** | 95.8 | 96.6 |
-| Nordland* | 78.3 | 90.8 | 94.0 | **85.8** | 94.9 | 96.8 | Nordland** | 87.8 | 94.5 | 96.4 | **92.6** | 96.9 | 98.0 |
-| SF-XL Night | 53.4 | 65.9 | 71.7 | **60.5** | 72.8 | 75.8 | SF-XL Occlusion | 51.3 | 65.8 | 73.7 | **61.8** | 77.6 | 77.6 |
-| SVOX | 98.4 | 99.4 | 99.6 | **98.9** | 99.6 | 99.7 | SVOX Sun | 98.1 | 99.4 | 99.5 | **98.8** | 99.8 | 99.9 |
-| SVOX Night | 98.3 | 99.6 | 99.6 | **98.8** | 99.8 | 99.9 | SVOX Snow | 99.1 | 99.7 | 99.8 | **99.3** | 99.8 | 99.9 |
-| SVOX Overcast | 97.9 | 99.2 | 99.3 | **98.3** | 99.3 | 99.7 | SVOX Rain | 96.5 | 99.6 | 99.7 | **98.2** | 99.9 | 99.9 |
+<table style="width:100%; border-collapse: collapse; font-size: 12px;">
+  <thead>
+    <tr>
+      <th style="text-align:left;">Dataset</th>
+      <th>G R1</th><th>G R5</th><th>G R10</th><th>R R1</th><th>R R5</th><th>R R10</th>
+      <th style="text-align:left;">Dataset</th>
+      <th>G R1</th><th>G R5</th><th>G R10</th><th>R R1</th><th>R R5</th><th>R R10</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Pitts250k-test</td><td>96.5</td><td>99.1</td><td>99.5</td><td><strong>97.0</strong></td><td>99.2</td><td>99.5</td><td>MSLS-val</td><td>93.1</td><td>96.9</td><td>97.4</td><td><strong>93.5</strong></td><td>96.9</td><td>97.6</td></tr>
+    <tr><td>MSLS-challenge</td><td>78.7</td><td>90.8</td><td>93.0</td><td><strong>80.0</strong></td><td>90.9</td><td>93.0</td><td>Tokyo24/7</td><td>96.2</td><td>98.7</td><td>98.7</td><td><strong>98.4</strong></td><td>99.1</td><td>99.4</td></tr>
+    <tr><td>Pitts30k</td><td>93.9</td><td>97.2</td><td>98.1</td><td><strong>94.5</strong></td><td>97.4</td><td>98.2</td><td>Sped</td><td><strong>92.1</strong></td><td>96.5</td><td>98.0</td><td>91.8</td><td>96.5</td><td>97.4</td></tr>
+    <tr><td>Amstertime</td><td>64.6</td><td>84.3</td><td>88.2</td><td><strong>70.1</strong></td><td>89.0</td><td>91.8</td><td>Eynsham</td><td>91.7</td><td>95.3</td><td>96.2</td><td><strong>92.4</strong></td><td>95.8</td><td>96.6</td></tr>
+    <tr><td>Nordland*</td><td>78.3</td><td>90.8</td><td>94.0</td><td><strong>85.8</strong></td><td>94.9</td><td>96.8</td><td>Nordland**</td><td>87.8</td><td>94.5</td><td>96.4</td><td><strong>92.6</strong></td><td>96.9</td><td>98.0</td></tr>
+    <tr><td>SF-XL Night</td><td>53.4</td><td>65.9</td><td>71.7</td><td><strong>60.5</strong></td><td>72.8</td><td>75.8</td><td>SF-XL Occlusion</td><td>51.3</td><td>65.8</td><td>73.7</td><td><strong>61.8</strong></td><td>77.6</td><td>77.6</td></tr>
+    <tr><td>SVOX</td><td>98.4</td><td>99.4</td><td>99.6</td><td><strong>98.9</strong></td><td>99.6</td><td>99.7</td><td>SVOX Sun</td><td>98.1</td><td>99.4</td><td>99.5</td><td><strong>98.8</strong></td><td>99.8</td><td>99.9</td></tr>
+    <tr><td>SVOX Night</td><td>98.3</td><td>99.6</td><td>99.6</td><td><strong>98.8</strong></td><td>99.8</td><td>99.9</td><td>SVOX Snow</td><td>99.1</td><td>99.7</td><td>99.8</td><td><strong>99.3</strong></td><td>99.8</td><td>99.9</td></tr>
+    <tr><td>SVOX Overcast</td><td>97.9</td><td>99.2</td><td>99.3</td><td><strong>98.3</strong></td><td>99.3</td><td>99.7</td><td>SVOX Rain</td><td>96.5</td><td>99.6</td><td>99.7</td><td><strong>98.2</strong></td><td>99.9</td><td>99.9</td></tr>
+  </tbody>
+</table>
 
 ## Related Work
 Our another ICLR 2026 work (single-stage VPR based on DINOv2) [SAGE](https://openreview.net/forum?id=DCpbEXqPvS) achieved SOTA performance on several datasets. The code is released at [here](https://github.com/chenshunpeng/SAGE).
