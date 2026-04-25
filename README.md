@@ -91,15 +91,23 @@ python train.py --eval_datasets_folder=.../datasets/ --eval_dataset_name pitts30
 
 ## Performance
  
-This table lists R1, R5, and R10 for FoL across common VPR datasets, showing both **FoL-global** and **FoL-reranking** results. The best R1 value within each dataset row is typeset in **bold**. All results are reported for ViT-L at 504×504 resolution; in the table, `G` and `R` denote `global` and `re-ranking`, respectively.
+This table lists R1, R5, and R10 for FoL across common VPR datasets, showing both **FoL-global** and **FoL-reranking** results. The best R1 value within each dataset row is typeset in **bold**. All results are reported for ViT-L at 504×504 resolution.
 
 <table style="width:100%; border-collapse: collapse; font-size: 12px;">
   <thead>
     <tr>
-      <th style="text-align:left;">Dataset</th>
-      <th>G R1</th><th>G R5</th><th>G R10</th><th>R R1</th><th>R R5</th><th>R R10</th>
-      <th style="text-align:left;">Dataset</th>
-      <th>G R1</th><th>G R5</th><th>G R10</th><th>R R1</th><th>R R5</th><th>R R10</th>
+      <th rowspan="2" style="text-align:left;">Dataset</th>
+      <th colspan="3">global</th>
+      <th colspan="3">re-ranking</th>
+      <th rowspan="2" style="text-align:left;">Dataset</th>
+      <th colspan="3">global</th>
+      <th colspan="3">re-ranking</th>
+    </tr>
+    <tr>
+      <th>R1</th><th>R5</th><th>R10</th>
+      <th>R1</th><th>R5</th><th>R10</th>
+      <th>R1</th><th>R5</th><th>R10</th>
+      <th>R1</th><th>R5</th><th>R10</th>
     </tr>
   </thead>
   <tbody>
