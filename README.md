@@ -15,8 +15,6 @@ We introduce Focus on Local **(FoL)**, a two-stage Visual Place Recognition (VPR
 - **Weakly-Supervised Local Feature Learning**: We leverage pseudo-correspondences from aggregated global features to improve local matching supervision.
 - **Efficient Re-ranking with Discriminative Region Guidance**: We use the learned discriminative regions to guide local feature matching, improving accuracy and efficiency.
 
-You may refer to our **anonymous conference version** of the paper: [anonymous conference version](2104_Focus_on_Local_Finding_Re.pdf)
-
 <img src="image/pipeline.jpg" width="800px">
 
 ## Setup & Requirements
@@ -60,16 +58,19 @@ You can download our pretrained FoL model either via Google Drive or directly fr
   ```python
   from huggingface_hub import hf_hub_download
 
-  # this will download FoL.pth into your cache folder
-  FoLpath = hf_hub_download(
+  # To download the ViT-L (Large) checkpoint:
+  fol_large_path = hf_hub_download(
       repo_id="shunpeng/FoL",
-      filename="FoL.pth"
+      filename="FoL_large.pth"
   )
-  print("Downloaded weights to:", FoLpath)
-  ```
+  print("Downloaded ViT-L weights to:", fol_large_path)
 
-> **Note:** Hugging Face Hub downloads the ViT-L checkpoint (`FoL_large.pth`) by default. For ViT-B (`FoL_base.pth`), use the Google Drive links above.
-
+  # To download the ViT-B (Base) checkpoint:
+  fol_base_path = hf_hub_download(
+      repo_id="shunpeng/FoL",
+      filename="FoL_base.pth"
+  )
+  print("Downloaded ViT-B weights to:", fol_base_path)
 ---
 
 ## Evaluation
