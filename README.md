@@ -78,16 +78,23 @@ You can download our pretrained FoL model either via Google Drive or directly fr
 Assuming you have your datasets under `/datasets/` and your weights in `/weights/FoL.pth`:
 
 ```bash
-python eval.py \
-  --eval_datasets_folder=/datasets/ \
-  --dataset_names pitts30k amstertime \
-  --resume=/weights/FoL.pth
+python eval.py --eval_datasets_folder=/datasets/ --dataset_names pitts30k amstertime --resume=/weights/FoL_large.pth
 ```
 
 ## Train
 
 ```bash
 python train.py --eval_datasets_folder=.../datasets/ --eval_dataset_name pitts30k --epochs_num=8 --train_batch_size=60 --lr=6e-5 --optim=adamw --resize 322 322 --save_dir train_log/
+```
+
+## 🎨 Visualization (Demo)
+
+We provide a standalone visualization script, [FoL_visualize_match.py](https://github.com/chenshunpeng/FoL/blob/main/visualize_pairs/FoL_visualize_match.py), to demonstrate the keypoint matching process guided by **Discriminative Region Guidance**. 
+
+You can run it directly using the default sample images provided in the repository:
+
+```bash
+python FoL_visualize_match.py --resume=/weights/FoL_large.pth
 ```
 
 ## Performance
