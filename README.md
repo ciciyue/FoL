@@ -89,7 +89,7 @@ python train.py --eval_datasets_folder=.../datasets/ --eval_dataset_name pitts30
 
 ## 🎨 Visualization
 
-We provide a standalone visualization script, [FoL_visualize_match.py](https://github.com/chenshunpeng/FoL/blob/main/visualize_pairs/FoL_visualize_match.py), to demonstrate keypoint matching guided by <b style="color:red;">discriminative region guidance</b> with **optional geometric verification**.
+We provide a standalone visualization script, [FoL_visualize_match.py](https://github.com/chenshunpeng/FoL/blob/main/visualize_pairs/FoL_visualize_match.py), to demonstrate keypoint matching guided by $\color{red}{\mathbf{discriminative\ region\ guidance}}$ with **optional geometric verification**.
 
 You can run it directly with the default sample images included in the repository:
 
