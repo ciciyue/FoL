@@ -71,35 +71,38 @@ You can download our pretrained FoL model either via Google Drive or directly fr
       filename="FoL_base.pth"
   )
   print("Downloaded ViT-B weights to:", fol_base_path)
+  ```
 ---
 
 ## 📊 Evaluation
 
-Assuming you have your datasets under `/datasets/` and your weights in `/weights/FoL.pth`:
+Assuming you have your datasets under `./datasets/` and your weights in `./weights/FoL.pth`:
 
 ```bash
-python eval.py --eval_datasets_folder=/datasets/ --dataset_names pitts30k amstertime --resume=/weights/FoL_large.pth
+python eval.py --eval_datasets_folder=./datasets/ --dataset_names pitts30k amstertime --resume=./weights/FoL_large.pth
 ```
 
 ## 🚀 Train
 
 ```bash
-python train.py --eval_datasets_folder=.../datasets/ --eval_dataset_name pitts30k --epochs_num=8 --train_batch_size=60 --lr=6e-5 --optim=adamw --resize 322 322 --save_dir train_log/
+python train.py --eval_datasets_folder=./datasets/ --eval_dataset_name pitts30k --epochs_num=8 --train_batch_size=60 --lr=6e-5 --optim=adamw --resize 322 322 --save_dir train_log/
 ```
 
 ## 🎨 Visualization
 
-We provide a standalone visualization script, [FoL_visualize_match.py](https://github.com/chenshunpeng/FoL/blob/main/visualize_pairs/FoL_visualize_match.py), to demonstrate keypoint matching guided by $\color{red}{\mathbf{discriminative\ region\ guidance}}$ with **optional geometric verification**.
+We provide a standalone visualization script, [FoL_visualize_match.py](https://github.com/chenshunpeng/FoL/blob/main/visualize_pairs/FoL_visualize_match.py), to demonstrate keypoint matching guided by $\color{red}{\mathbf{Discriminative\ Region\ Guidance}}$ with **optional** geometric verification.
 
 You can run it directly with the default sample images included in the repository:
 
 ```bash
+cd visualize_pairs
 python FoL_visualize_match.py --resume /weights/FoL_large.pth
-````
+```
 
 To visualize matching on your own custom image pair, simply specify the image paths:
 
 ```bash
+cd visualize_pairs
 python FoL_visualize_match.py --image_path0 path/to/your/query_image.jpg --image_path1 path/to/your/database_image.jpg --resume /weights/FoL_large.pth --device cuda
 ```
 
@@ -116,11 +119,11 @@ Below we show a comparison of matching results:
 <td>
 <img src="image/foL_visualize_ransac.jpg" width="100%">
 <br>
-<em>After geometric verification with RANSAC (cleaner and more consistent)</em>
+<em>Geometry-consistent matches after RANSAC (outliers removed)</em>
 </td>
 </tr>
 </table>
-
+Geometric verification effectively removes outliers and improves match consistency (Matches: 29 → 21).
 
 ## 📈 Performance
  
