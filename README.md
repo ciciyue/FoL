@@ -89,7 +89,7 @@ python train.py --eval_datasets_folder=.../datasets/ --eval_dataset_name pitts30
 
 ## 🎨 Visualization
 
-We provide a standalone visualization script, [FoL_visualize_match.py](https://github.com/chenshunpeng/FoL/blob/main/visualize_pairs/FoL_visualize_match.py), to demonstrate keypoint matching guided by **Discriminative Region Guidance**.
+We provide a standalone visualization script, [FoL_visualize_match.py](https://github.com/chenshunpeng/FoL/blob/main/visualize_pairs/FoL_visualize_match.py), to demonstrate keypoint matching guided by $\color{red}{\textbf{\text{discriminative region guidance}}}$ with **optional geometric verification**.
 
 You can run it directly with the default sample images included in the repository:
 
@@ -103,9 +103,21 @@ To visualize matching on your own custom image pair, simply specify the image pa
 python FoL_visualize_match.py --image_path0 path/to/your/query_image.jpg --image_path1 path/to/your/database_image.jpg --resume /weights/FoL_large.pth --device cuda
 ```
 
-The matching result is shown below:
+Below we show a comparison of matching results:
 
-<img src="image/foL_visualize.jpg" width="500px">
+<div style="display: flex; gap: 20px;">
+
+<div>
+<img src="image/foL_visualize.jpg" width="480px">
+<p><em>Raw matching results (FoL + similarity filtering)</em></p>
+</div>
+
+<div>
+<img src="image/foL_visualize_ransac.jpg" width="480px">
+<p><em>After geometric verification with RANSAC (cleaner and more consistent)</em></p>
+</div>
+
+</div>
 
 
 ## 📈 Performance
