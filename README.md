@@ -7,7 +7,7 @@
 
 This is the official repository for the AAAI 2025 paper "FoL" available at [AAAI Paper Page](https://ojs.aaai.org/index.php/AAAI/article/view/32811). In addition, our paper and its extensive supplementary materials can be found on [arXiv](https://arxiv.org/abs/2504.09881).
 
-## Summary
+## 📝 Summary
 
 We introduce Focus on Local **(FoL)**, a two-stage Visual Place Recognition (VPR) approach that enhances image retrieval and re-ranking by identifying and leveraging **reliable discriminative local regions**. Our method introduces three key contributions:
 
@@ -17,7 +17,7 @@ We introduce Focus on Local **(FoL)**, a two-stage Visual Place Recognition (VPR
 
 <img src="image/pipeline.jpg" width="800px">
 
-## Setup & Requirements
+## 🛠️ Setup & Requirements
 **Quick install:**
 ```bash
 # create and activate conda env
@@ -44,7 +44,7 @@ Install the Hugging Face Hub client (if you want to pull weights directly):
 pip install huggingface_hub
 ```
 
-## Download Pretrained Weights
+## ⬇️ Download Pretrained Weights
 
 You can download our pretrained FoL model either via Google Drive or directly from Hugging Face:
 
@@ -73,7 +73,7 @@ You can download our pretrained FoL model either via Google Drive or directly fr
   print("Downloaded ViT-B weights to:", fol_base_path)
 ---
 
-## Evaluation
+## 📊 Evaluation
 
 Assuming you have your datasets under `/datasets/` and your weights in `/weights/FoL.pth`:
 
@@ -81,23 +81,34 @@ Assuming you have your datasets under `/datasets/` and your weights in `/weights
 python eval.py --eval_datasets_folder=/datasets/ --dataset_names pitts30k amstertime --resume=/weights/FoL_large.pth
 ```
 
-## Train
+## 🚀 Train
 
 ```bash
 python train.py --eval_datasets_folder=.../datasets/ --eval_dataset_name pitts30k --epochs_num=8 --train_batch_size=60 --lr=6e-5 --optim=adamw --resize 322 322 --save_dir train_log/
 ```
 
-## 🎨 Visualization (Demo)
+## 🎨 Visualization
 
-We provide a standalone visualization script, [FoL_visualize_match.py](https://github.com/chenshunpeng/FoL/blob/main/visualize_pairs/FoL_visualize_match.py), to demonstrate the keypoint matching process guided by **Discriminative Region Guidance**. 
+We provide a standalone visualization script, [FoL_visualize_match.py](https://github.com/chenshunpeng/FoL/blob/main/visualize_pairs/FoL_visualize_match.py), to demonstrate keypoint matching guided by **Discriminative Region Guidance**.
 
-You can run it directly using the default sample images provided in the repository:
+You can run it directly with the default sample images included in the repository:
 
 ```bash
-python FoL_visualize_match.py --resume=/weights/FoL_large.pth
+python FoL_visualize_match.py --resume /weights/FoL_large.pth
+````
+
+To visualize matching on your own custom image pair, simply specify the image paths:
+
+```bash
+python FoL_visualize_match.py --image_path0 path/to/your/query_image.jpg --image_path1 path/to/your/database_image.jpg --resume /weights/FoL_large.pth --device cuda
 ```
 
-## Performance
+The matching result is shown below:
+
+<img src="image/foL_visualize.jpg" width="500px">
+
+
+## 📈 Performance
  
 This table lists R1, R5, and R10 for FoL across common VPR datasets, showing both **FoL-global** and **FoL-reranking** results. The best R1 value within each dataset row is typeset in $\color{red}{\mathbf{bold}}$. All results are reported for [ViT-L](https://drive.google.com/file/d/1-7LE_4Q0zL3S8lGVEH0Ob1NCFXq4KfJ8/view?usp=sharing) at 504×504.
 
@@ -133,7 +144,7 @@ For Nordland variants: `Nordland*` uses 2,760 summer queries against a 27,592-im
   </tbody>
 </table>
 
-### Additional Results at 322×322
+### ✨ Additional Results at 322×322
 
 The following table reports results at 322×322 on six datasets for both backbones.
 
@@ -167,18 +178,18 @@ The following table reports results at 322×322 on six datasets for both backbon
   </tbody>
 </table>
 
-## Related Work
+## 📚 Related Work
 Our another ICLR 2026 work (single-stage VPR based on DINOv2) [SAGE](https://openreview.net/forum?id=DCpbEXqPvS) achieved SOTA performance on several datasets. The code is released at [here](https://github.com/chenshunpeng/SAGE).
 
 
-## Acknowledgements
+## 🙏 Acknowledgements
 This code is based on the excellent work of:
  - [SelaVPR](https://github.com/Lu-Feng/SelaVPR), [CricaVPR](https://github.com/Lu-Feng/CricaVPR)
  - [SALAD](https://github.com/serizba/salad)
  - [Visual Geo-localization benchmark](https://github.com/gmberton/deep-visual-geo-localization-benchmark), [VPR-datasets-downloader](https://github.com/gmberton/VPR-datasets-downloader)
  - [GSV-Cities](https://github.com/amaralibey/gsv-cities), [MixVPR](https://github.com/amaralibey/MixVPR)
 
-## Citation
+## 📌 Citation
 
 If you find this repo useful for your research, please cite the paper
 
