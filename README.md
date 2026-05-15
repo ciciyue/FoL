@@ -89,7 +89,7 @@ python train.py --eval_datasets_folder=.../datasets/ --eval_dataset_name pitts30
 
 ## 🎨 Visualization
 
-We provide a standalone visualization script, [FoL_visualize_match.py](https://github.com/chenshunpeng/FoL/blob/main/visualize_pairs/FoL_visualize_match.py), to demonstrate keypoint matching guided by $\color{red}{\textbf{\text{discriminative region guidance}}}$ with **optional geometric verification**.
+We provide a standalone visualization script, [FoL_visualize_match.py](https://github.com/chenshunpeng/FoL/blob/main/visualize_pairs/FoL_visualize_match.py), to demonstrate keypoint matching guided by <b style="color:red;">discriminative region guidance</b> with **optional geometric verification**.
 
 You can run it directly with the default sample images included in the repository:
 
@@ -105,19 +105,21 @@ python FoL_visualize_match.py --image_path0 path/to/your/query_image.jpg --image
 
 Below we show a comparison of matching results:
 
-<div style="display: flex; gap: 20px;">
+<table>
+<tr>
+<td>
+<img src="image/foL_visualize.jpg" width="100%">
+<br>
+<em>Raw matching results (FoL + similarity filtering)</em>
+</td>
 
-<div>
-<img src="image/foL_visualize.jpg" width="480px">
-<p><em>Raw matching results (FoL + similarity filtering)</em></p>
-</div>
-
-<div>
-<img src="image/foL_visualize_ransac.jpg" width="480px">
-<p><em>After geometric verification with RANSAC (cleaner and more consistent)</em></p>
-</div>
-
-</div>
+<td>
+<img src="image/foL_visualize_ransac.jpg" width="100%">
+<br>
+<em>After geometric verification with RANSAC (cleaner and more consistent)</em>
+</td>
+</tr>
+</table>
 
 
 ## 📈 Performance
