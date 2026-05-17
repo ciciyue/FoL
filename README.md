@@ -211,22 +211,6 @@ This code is based on the excellent work of:
 
 ## 📌 Citation
 
-If you find this repo useful for your research, please cite the paper
-
-```
-@inproceedings{FoL,
-  title={Focus on Local: Finding Reliable Discriminative Regions for Visual Place Recognition},
-  author={Wang, Changwei and Chen, Shunpeng and Song, Yukun and Xu, Rongtao and Zhang, Zherui and Zhang, Jiguang and Yang, Haoran and Zhang, Yu and Fu, Kexue and Du, Shide and others},
-  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
-  volume={39},
-  number={7},
-  pages={7536--7544},
-  year={2025}
-}
-```
-
-## 📌 Citation
-
 If you find this repo useful for your research, please consider citing our original conference paper ([FoL](https://arxiv.org/abs/2504.09881)) and the extended journal version ([FoL++](https://arxiv.org/abs/2604.22390)):
 
 ```bibtex
