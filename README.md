@@ -90,13 +90,16 @@ python train.py --eval_datasets_folder=./datasets/ --eval_dataset_name pitts30k 
 
 ## 🎨 Visualization
 
-We provide a standalone visualization script, [FoL_visualize_match.py](https://github.com/chenshunpeng/FoL/blob/main/visualize_pairs/FoL_visualize_match.py), to demonstrate keypoint matching guided by $\color{red}{\mathbf{Discriminative\ Region\ Guidance}}$ with **optional** geometric verification.
+We provide a standalone visualization script, [FoL_visualize_match.py](https://github.com/chenshunpeng/FoL/blob/main/visualize_pairs/FoL_visualize_match.py), to demonstrate keypoint matching guided by <b><span style="color:red">Discriminative Region Guidance</span></b> with **optional** geometric verification. 
 
-You can run it directly with the default sample images included in the repository:
+> **🌟 Extension Work Notice:**
+> The visualization of local feature matching in the reranking stage shown here corresponds to the extended analysis in our journal version: [**FoL++ (Region Matters: Efficient and Reliable Region-Aware Visual Place Recognition)**](https://arxiv.org/abs/2604.22390).
+
+You can run it directly with the default sample images included in the repository (ensure you are running this from the `visualize_pairs` directory):
 
 ```bash
 cd visualize_pairs
-python FoL_visualize_match.py --resume /weights/FoL_large.pth
+python FoL_visualize_match.py --resume ../weights/FoL_large.pth
 ```
 
 To visualize matching on your own custom image pair, simply specify the image paths:
@@ -221,3 +224,25 @@ If you find this repo useful for your research, please cite the paper
   year={2025}
 }
 ```
+
+## 📌 Citation
+
+If you find this repo useful for your research, please consider citing our original conference paper ([FoL](https://arxiv.org/abs/2504.09881)) and the extended journal version ([FoL++](https://arxiv.org/abs/2604.22390)):
+
+```bibtex
+@inproceedings{FoL,
+  title={Focus on Local: Finding Reliable Discriminative Regions for Visual Place Recognition},
+  author={Wang, Changwei and Chen, Shunpeng and Song, Yukun and Xu, Rongtao and Zhang, Zherui and Zhang, Jiguang and Yang, Haoran and Zhang, Yu and Fu, Kexue and Du, Shide and others},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={39},
+  number={7},
+  pages={7536--7544},
+  year={2025}
+}
+
+@article{FoL++,
+  title={Region Matters: Efficient and Reliable Region-Aware Visual Place Recognition},
+  author={Chen, Shunpeng and Song, Yukun and Wang, Changwei and Xu, Rongtao and Fu, Kexue and Gao, Longxiang and Guo, Li and Wang, Ruisheng and Xu, Shibiao},
+  journal={arXiv preprint arXiv:2604.22390},
+  year={2026}
+}
