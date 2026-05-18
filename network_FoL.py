@@ -15,7 +15,7 @@ class FoLNet(nn.Module):
         self.backbone = DINOv2(model_name=model_name, num_trainable_blocks=num_trainable_blocks, return_token=True,
                                norm_layer=True)
         self.aggregator = FoL(num_channels=num_channels, num_clusters=64, cluster_dim=128, token_dim=256)
-        self.upconv = torch.nn.ConvTranspose2d(in_channels=1024, out_channels=256, kernel_size=3, stride=2, padding=1)
+        self.upconv = torch.nn.ConvTranspose2d(in_channels=num_channels, out_channels=256, kernel_size=3, stride=2, padding=1)
         self.upconv2 = torch.nn.ConvTranspose2d(in_channels=256, out_channels=128, kernel_size=3, stride=2, padding=1)
         self.relu = nn.ReLU(inplace=True)
 
