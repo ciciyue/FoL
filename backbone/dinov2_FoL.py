@@ -29,7 +29,8 @@ class DINOv2(nn.Module):
         super().__init__()
 
         assert model_name in DINOV2_ARCHS.keys(), f'Unknown model name {model_name}'
-        self.model = torch.hub.load('facebookresearch_dinov2_main/', model_name, source='local')
+        self.model = torch.hub.load('facebookresearch/dinov2', model_name)
+        # self.model = torch.hub.load('facebookresearch_dinov2_main/', model_name, source='local')
         self.num_channels = DINOV2_ARCHS[model_name]  # 768
         self.num_trainable_blocks = num_trainable_blocks  # 4
         self.norm_layer = norm_layer  # True
